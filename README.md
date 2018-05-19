@@ -10,4 +10,4 @@ https://trello.com/b/eAEPEJrw/netkernel-petclinic
 https://appear.in/netkernel-petclinic
 
 # Discussion forum
-http://www.1060.org/nk4um/topic/1039/index
+http://www.1060.org/nk4um/forum/16/
