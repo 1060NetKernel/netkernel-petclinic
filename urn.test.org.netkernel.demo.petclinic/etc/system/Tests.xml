@@ -1,0 +1,8 @@
+<tests>
+    <test>
+        <id>urn:test:org:netkernel:demo:petclinic</id>
+        <name>Petclinic Tests</name>
+        <desc>Tests for the Petclinic Demo</desc>
+        <uri>res:/test/testlist.xml</uri>
+    </test>
+</tests>

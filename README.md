@@ -8,3 +8,6 @@ https://trello.com/b/eAEPEJrw/netkernel-petclinic
 
 # Collaboration room
 https://appear.in/netkernel-petclinic
+
+# TODO
+Add instruction for setting up development environment on a pristine machine

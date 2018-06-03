@@ -1,0 +1,27 @@
+<module version="2.0">
+    <meta>
+        <identity>
+            <uri>urn:test:org:netkernel:demo:petclinic</uri>
+            <version>0.0.1</version>
+        </identity>
+        <info>
+            <name>Tests for Petclinic Demo</name>
+            <description>Tests for Petclinic in ROC</description>
+        </info>
+    </meta>
+    <system>
+        <dynamic/>
+    </system>
+    <rootspace>
+        <fileset>
+            <regex>res:/etc/system/Tests.xml</regex>
+        </fileset>
+        <fileset>
+            <regex>res:/test/.*</regex>
+        </fileset>
+        <import>
+            <uri>urn:org:netkernel:demo:petclinic</uri>
+        </import>
+
+    </rootspace>
+</module>

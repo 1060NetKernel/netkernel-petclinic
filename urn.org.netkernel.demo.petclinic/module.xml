@@ -1,0 +1,16 @@
+<module version="2.0">
+    <meta>
+        <identity>
+            <uri>urn:org:netkernel:demo:petclinic</uri>
+            <version>0.0.1</version>
+        </identity>
+        <info>
+            <name>Demo / Petclinic</name>
+            <description>Petclinic in ROC</description>
+        </info>
+    </meta>
+    <system>
+        <dynamic/>
+    </system>
+    <rootspace/>
+</module>
