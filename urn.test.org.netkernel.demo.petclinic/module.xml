@@ -22,6 +22,8 @@
         <import>
             <uri>urn:org:netkernel:demo:petclinic</uri>
         </import>
-
+        <import>
+            <uri>urn:org:netkernel:xml:core</uri>
+        </import>
     </rootspace>
 </module>

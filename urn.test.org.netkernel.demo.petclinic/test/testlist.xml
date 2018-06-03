@@ -1,1 +1,12 @@
-<testlist/>
+<testlist>
+    <import>res:/org/netkernel/xml/assert/assertLibrary.xml</import>
+
+    <test name="res:/api/owners/{ownerId}">
+        <request>
+            <identifier>res:/api/owners/10</identifier>
+        </request>
+        <assert>
+            <exception />
+        </assert>
+    </test>
+</testlist>
