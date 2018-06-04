@@ -12,5 +12,33 @@
     <system>
         <dynamic/>
     </system>
-    <rootspace/>
+    <rootspace>
+        <mapper>
+            <config>
+                <endpoint>
+                    <grammar>
+                        <simple>res:/api/owners/{ownerId}</simple>
+                    </grammar>
+                    <request>
+                        <identifier>active:owner</identifier>
+                        <argument name="id">arg:ownerId</argument>
+                    </request>
+                </endpoint>
+                <endpoint>
+                    <grammar>
+                        <active>
+                            <identifier>active:owner</identifier>
+                            <argument name="id" />
+                        </active>
+                    </grammar>
+                    <request>
+                        <identifier>res:/dummy</identifier>
+                    </request>
+                </endpoint>
+            </config>
+            <space>
+                <literal uri="res:/dummy" type="string">ReplaceMe!</literal>
+            </space>
+        </mapper>
+    </rootspace>
 </module>

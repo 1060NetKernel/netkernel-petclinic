@@ -6,7 +6,16 @@
             <identifier>res:/api/owners/10</identifier>
         </request>
         <assert>
-            <exception />
+            <stringEquals>ReplaceMe!</stringEquals>
+        </assert>
+    </test>
+    <test name="active:owner+id@10">
+        <request>
+            <identifier>active:owner</identifier>
+            <argument name="id">10</argument>
+        </request>
+        <assert>
+            <stringEquals>ReplaceMe!</stringEquals>
         </assert>
     </test>
 </testlist>
