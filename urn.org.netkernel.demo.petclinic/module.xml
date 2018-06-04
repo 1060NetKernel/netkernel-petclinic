@@ -13,6 +13,10 @@
         <dynamic/>
     </system>
     <rootspace>
+        <!-- Expose this space to http fulcrum for development convenience -->
+        <fileset>
+            <regex>res:/etc/system/SimpleDynamicImportHook.xml</regex>
+        </fileset>
         <mapper>
             <config>
                 <import>res:/org/netkernel/demo/petclinic/owner/ownerMapperConfig.xml</import>
