@@ -1,9 +1,9 @@
 <testlist>
     <import>res:/org/netkernel/xml/assert/assertLibrary.xml</import>
 
-    <test name="res:/api/owners/{ownerId}">
+    <test name="res:/petclinic/api/owners/{ownerId}">
         <request>
-            <identifier>res:/api/owners/10</identifier>
+            <identifier>res:/petclinic/api/owners/10</identifier>
         </request>
         <assert>
             <stringEquals>ReplaceMe!</stringEquals>
