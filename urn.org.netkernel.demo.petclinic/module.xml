@@ -15,29 +15,13 @@
     <rootspace>
         <mapper>
             <config>
-                <endpoint>
-                    <grammar>
-                        <simple>res:/api/owners/{ownerId}</simple>
-                    </grammar>
-                    <request>
-                        <identifier>active:owner</identifier>
-                        <argument name="id">arg:ownerId</argument>
-                    </request>
-                </endpoint>
-                <endpoint>
-                    <grammar>
-                        <active>
-                            <identifier>active:owner</identifier>
-                            <argument name="id" />
-                        </active>
-                    </grammar>
-                    <request>
-                        <identifier>res:/dummy</identifier>
-                    </request>
-                </endpoint>
+                <import>res:/org/netkernel/demo/petclinic/owner/ownerMapperConfig.xml</import>
             </config>
             <space>
                 <literal uri="res:/dummy" type="string">ReplaceMe!</literal>
+                <fileset>
+                    <regex>res:/org/netkernel/demo/petclinic/.*</regex>
+                </fileset>
             </space>
         </mapper>
     </rootspace>

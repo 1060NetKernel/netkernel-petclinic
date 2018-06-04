@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config>
+    <endpoint>
+        <grammar>
+            <simple>res:/api/owners/{ownerId}</simple>
+        </grammar>
+        <request>
+            <identifier>active:owner</identifier>
+            <argument name="id">arg:ownerId</argument>
+        </request>
+    </endpoint>
+    <endpoint>
+        <grammar>
+            <active>
+                <identifier>active:owner</identifier>
+                <argument name="id" />
+            </active>
+        </grammar>
+        <request>
+            <identifier>res:/dummy</identifier>
+        </request>
+    </endpoint>
+</config>
