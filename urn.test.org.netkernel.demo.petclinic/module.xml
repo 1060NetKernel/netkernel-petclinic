@@ -25,5 +25,8 @@
         <import>
             <uri>urn:org:netkernel:xml:core</uri>
         </import>
+        <import>
+            <uri>urn:org:netkernel:lang:groovy</uri>
+        </import>
     </rootspace>
 </module>
