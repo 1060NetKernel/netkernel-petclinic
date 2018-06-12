@@ -80,6 +80,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.18.1</version>
                 <configuration>
+                    <excludes>
+                        <exclude>**/*Test.java</exclude>
+                    </excludes>
                     <testFailureIgnore>true</testFailureIgnore>
                     <parallel>classes</parallel>
                     <threadCount>5</threadCount>
@@ -92,7 +95,8 @@
                     <includes>
                         <include>**/*Test.java</include>
                     </includes>
-                    <parallel>methods</parallel>
+                    <!--Prevent error: There was an error in the forked process-->
+                    <!--<parallel>methods</parallel>-->
                     <threadCount>2</threadCount>
                     <reuseForks>true</reuseForks>
                     <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
