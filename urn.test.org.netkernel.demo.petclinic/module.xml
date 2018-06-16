@@ -5,8 +5,8 @@
             <version>0.0.1</version>
         </identity>
         <info>
-            <name>Tests for Petclinic Demo</name>
-            <description>Tests for Petclinic in ROC</description>
+            <name>Tests for PetClinic Demo</name>
+            <description>Tests for PetClinic in ROC</description>
         </info>
     </meta>
     <system>

@@ -1,0 +1,19 @@
+================================================================================
+===        NetKernel PetClinic application - MySQL Configuration             ===
+================================================================================
+
+Adaptation of original sources from the Spring PetClinic application.
+
+Our grateful thanks to original authors:
+@author Sam Brannen
+@author Costin Leau
+
+--------------------------------------------------------------------------------
+
+1) Download and install the MySQL database (e.g., MySQL Community Server 5.7.x),
+   which can be found here: http://dev.mysql.com/downloads/mysql/
+   Alternatively, you may use the official MySQL docker image. Refer to the
+   README.md for the Docker command line.
+
+2) Create the PetClinic database and user by executing the "db/mysql/initDB.sql"
+   and "db/mysql/populateDB.sql" scripts.

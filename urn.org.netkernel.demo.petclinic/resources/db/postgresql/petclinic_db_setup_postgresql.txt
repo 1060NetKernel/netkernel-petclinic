@@ -1,0 +1,25 @@
+================================================================================
+===        NetKernel PetClinic application - PostgreSQL Configuration        ===
+================================================================================
+
+Adaptation of original sources from the Spring PetClinic application.
+
+Our grateful thanks to original authors:
+@author Vitaliy Fedoriv
+@autor Antoine Rey
+
+--------------------------------------------------------------------------------
+
+1) Download and install the PostgreSQL database,
+   which can be found here: https://www.postgresql.org/download/
+
+2) Open psql and create the PetClinic database:
+ 
+    CREATE DATABASE petclinic
+    WITH OWNER = postgres
+       ENCODING = 'UTF8'
+       TABLESPACE = pg_default
+       CONNECTION LIMIT = -1;
+
+3) Create the PetClinic tables by executing the "db/postgresql/initDB.sql".
+   Then execute "db/mysql/populateDB.sql" script.

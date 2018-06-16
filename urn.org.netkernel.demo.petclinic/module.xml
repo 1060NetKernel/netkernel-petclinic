@@ -5,12 +5,17 @@
             <version>0.0.1</version>
         </identity>
         <info>
-            <name>Demo / Petclinic</name>
-            <description>Petclinic in ROC</description>
+            <name>Demo / PetClinic</name>
+            <description>PetClinic in ROC</description>
         </info>
     </meta>
     <system>
         <dynamic/>
+        <classloader>
+            <exports>
+                <match>org\.postgresql\..*</match>
+            </exports>
+        </classloader>
     </system>
     <rootspace>
         <!-- Expose this space to http fulcrum for development convenience -->
@@ -20,6 +25,25 @@
         <mapper>
             <config>
                 <import>res:/org/netkernel/demo/petclinic/owner/ownerMapperConfig.xml</import>
+                <endpoint>
+                    <grammar>
+                        <simple>res:/petclinic/init-db</simple>
+                    </grammar>
+                    <request>
+                        <identifier>active:initDB</identifier>
+                    </request>
+                </endpoint>
+                <endpoint>
+                    <grammar>
+                        <active>
+                            <identifier>active:initDB</identifier>
+                        </active>
+                    </grammar>
+                    <request>
+                        <identifier>active:groovy</identifier>
+                        <argument name="operator">res:/scripts/init-db.gy</argument>
+                    </request>
+                </endpoint>
             </config>
             <space>
                 <literal uri="res:/dummy" type="string">
@@ -60,6 +84,21 @@
                 <fileset>
                     <regex>res:/org/netkernel/demo/petclinic/.*</regex>
                 </fileset>
+                <fileset>
+                    <regex>res:/etc/.*</regex>
+                </fileset>
+                <fileset>
+                    <regex>res:/resources/.*</regex>
+                </fileset>
+                <fileset>
+                    <regex>res:/scripts/.*</regex>
+                </fileset>
+                <import>
+                    <uri>urn:org:netkernel:mod:db</uri>
+                </import>
+                <import>
+                    <uri>urn:org:netkernel:lang:groovy</uri>
+                </import>
             </space>
         </mapper>
     </rootspace>
