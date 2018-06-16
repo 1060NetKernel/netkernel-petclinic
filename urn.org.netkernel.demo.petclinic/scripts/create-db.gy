@@ -7,6 +7,6 @@ INKFRequestContext ctx = context
 INKFRequest req
 
 req = ctx.createRequest("active:sqlBatch")
-req.addArgument("operand", "res:/resources/db/postgresql/init-db.xml")
+req.addArgument("operand", "res:/resources/db/postgresql/create-db.xml")
 rep = ctx.issueRequest(req)
 ctx.createResponseFrom(rep)
