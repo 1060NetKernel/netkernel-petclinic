@@ -21,40 +21,40 @@
     </endpoint>
     <endpoint>
         <grammar>
-            <simple>res:/petclinic/init-db-schema</simple>
+            <simple>res:/petclinic/init-db</simple>
         </grammar>
         <request>
-            <identifier>active:init-db-schema</identifier>
+            <identifier>active:init-db</identifier>
         </request>
     </endpoint>
     <endpoint>
         <grammar>
             <active>
-                <identifier>active:init-db-schema</identifier>
+                <identifier>active:init-db</identifier>
             </active>
         </grammar>
         <request>
             <identifier>active:groovy</identifier>
-            <argument name="operator">res:/scripts/init-db-schema.gy</argument>
+            <argument name="operator">res:/scripts/init-db.gy</argument>
         </request>
     </endpoint>
     <endpoint>
         <grammar>
-            <simple>res:/petclinic/truncate-db-schema</simple>
+            <simple>res:/petclinic/truncate-db</simple>
         </grammar>
         <request>
-            <identifier>active:truncate-db-schema</identifier>
+            <identifier>active:truncate-db</identifier>
         </request>
     </endpoint>
     <endpoint>
         <grammar>
             <active>
-                <identifier>active:truncate-db-schema</identifier>
+                <identifier>active:truncate-db</identifier>
             </active>
         </grammar>
         <request>
             <identifier>active:groovy</identifier>
-            <argument name="operator">res:/scripts/truncate-db-schema.gy</argument>
+            <argument name="operator">res:/scripts/truncate-db.gy</argument>
         </request>
     </endpoint>
     <endpoint>
