@@ -1,0 +1,23 @@
+<batch>
+    <sql>
+        TRUNCATE table pets CASCADE;
+    </sql>
+    <sql>
+        TRUNCATE table owners CASCADE;
+    </sql>
+    <sql>
+        TRUNCATE table vets CASCADE;
+    </sql>
+    <sql>
+        TRUNCATE table specialties CASCADE;
+    </sql>
+    <sql>
+        TRUNCATE table types CASCADE;
+    </sql>
+    <sql>
+        TRUNCATE table visits CASCADE;
+    </sql>
+    <sql>
+        TRUNCATE table vet_specialties CASCADE;
+    </sql>
+</batch>

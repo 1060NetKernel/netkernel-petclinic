@@ -40,6 +40,25 @@
     </endpoint>
     <endpoint>
         <grammar>
+            <simple>res:/petclinic/truncate-db-schema</simple>
+        </grammar>
+        <request>
+            <identifier>active:truncate-db-schema</identifier>
+        </request>
+    </endpoint>
+    <endpoint>
+        <grammar>
+            <active>
+                <identifier>active:truncate-db-schema</identifier>
+            </active>
+        </grammar>
+        <request>
+            <identifier>active:groovy</identifier>
+            <argument name="operator">res:/scripts/truncate-db-schema.gy</argument>
+        </request>
+    </endpoint>
+    <endpoint>
+        <grammar>
             <simple>res:/petclinic/populate-db</simple>
         </grammar>
         <request>
