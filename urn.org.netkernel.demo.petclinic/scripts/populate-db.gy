@@ -1,0 +1,12 @@
+package scripts
+
+import org.netkernel.layer0.nkf.INKFRequest
+import org.netkernel.layer0.nkf.INKFRequestContext
+
+INKFRequestContext ctx = context
+INKFRequest req
+
+req = ctx.createRequest("active:sqlBatch")
+req.addArgument("operand", "res:/resources/db/postgresql/populate-db.xml")
+rep = ctx.issueRequest(req)
+ctx.createResponseFrom(rep)
