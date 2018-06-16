@@ -21,21 +21,21 @@
     </endpoint>
     <endpoint>
         <grammar>
-            <simple>res:/petclinic/init-db</simple>
+            <simple>res:/petclinic/init-db-schema</simple>
         </grammar>
         <request>
-            <identifier>active:init-db</identifier>
+            <identifier>active:init-db-schema</identifier>
         </request>
     </endpoint>
     <endpoint>
         <grammar>
             <active>
-                <identifier>active:init-db</identifier>
+                <identifier>active:init-db-schema</identifier>
             </active>
         </grammar>
         <request>
             <identifier>active:groovy</identifier>
-            <argument name="operator">res:/scripts/init-db.gy</argument>
+            <argument name="operator">res:/scripts/init-db-schema.gy</argument>
         </request>
     </endpoint>
     <endpoint>
