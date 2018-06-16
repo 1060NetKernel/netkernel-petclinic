@@ -25,63 +25,6 @@
         <mapper>
             <config>
                 <import>res:/org/netkernel/demo/petclinic/owner/ownerMapperConfig.xml</import>
-                <endpoint>
-                    <grammar>
-                        <simple>res:/petclinic/create-db</simple>
-                    </grammar>
-                    <request>
-                        <identifier>active:create-db</identifier>
-                    </request>
-                </endpoint>
-                <endpoint>
-                    <grammar>
-                        <active>
-                            <identifier>active:create-db</identifier>
-                        </active>
-                    </grammar>
-                    <request>
-                        <identifier>active:groovy</identifier>
-                        <argument name="operator">res:/scripts/create-db.gy</argument>
-                    </request>
-                </endpoint>
-                <endpoint>
-                    <grammar>
-                        <simple>res:/petclinic/init-db</simple>
-                    </grammar>
-                    <request>
-                        <identifier>active:init-db</identifier>
-                    </request>
-                </endpoint>
-                <endpoint>
-                    <grammar>
-                        <active>
-                            <identifier>active:init-db</identifier>
-                        </active>
-                    </grammar>
-                    <request>
-                        <identifier>active:groovy</identifier>
-                        <argument name="operator">res:/scripts/init-db.gy</argument>
-                    </request>
-                </endpoint>
-                <endpoint>
-                    <grammar>
-                        <simple>res:/petclinic/populate-db</simple>
-                    </grammar>
-                    <request>
-                        <identifier>active:populate-db</identifier>
-                    </request>
-                </endpoint>
-                <endpoint>
-                    <grammar>
-                        <active>
-                            <identifier>active:populate-db</identifier>
-                        </active>
-                    </grammar>
-                    <request>
-                        <identifier>active:groovy</identifier>
-                        <argument name="operator">res:/scripts/populate-db.gy</argument>
-                    </request>
-                </endpoint>
             </config>
             <space>
                 <literal uri="res:/dummy" type="string">
@@ -125,18 +68,6 @@
                 <fileset>
                     <regex>res:/etc/.*</regex>
                 </fileset>
-                <fileset>
-                    <regex>res:/resources/.*</regex>
-                </fileset>
-                <fileset>
-                    <regex>res:/scripts/.*</regex>
-                </fileset>
-                <import>
-                    <uri>urn:org:netkernel:mod:db</uri>
-                </import>
-                <import>
-                    <uri>urn:org:netkernel:lang:groovy</uri>
-                </import>
             </space>
         </mapper>
     </rootspace>

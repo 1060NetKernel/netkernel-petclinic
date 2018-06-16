@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<config>
+    <endpoint>
+        <grammar>
+            <simple>res:/petclinic/create-db</simple>
+        </grammar>
+        <request>
+            <identifier>active:create-db</identifier>
+        </request>
+    </endpoint>
+    <endpoint>
+        <grammar>
+            <active>
+                <identifier>active:create-db</identifier>
+            </active>
+        </grammar>
+        <request>
+            <identifier>active:groovy</identifier>
+            <argument name="operator">res:/scripts/create-db.gy</argument>
+        </request>
+    </endpoint>
+    <endpoint>
+        <grammar>
+            <simple>res:/petclinic/init-db</simple>
+        </grammar>
+        <request>
+            <identifier>active:init-db</identifier>
+        </request>
+    </endpoint>
+    <endpoint>
+        <grammar>
+            <active>
+                <identifier>active:init-db</identifier>
+            </active>
+        </grammar>
+        <request>
+            <identifier>active:groovy</identifier>
+            <argument name="operator">res:/scripts/init-db.gy</argument>
+        </request>
+    </endpoint>
+    <endpoint>
+        <grammar>
+            <simple>res:/petclinic/populate-db</simple>
+        </grammar>
+        <request>
+            <identifier>active:populate-db</identifier>
+        </request>
+    </endpoint>
+    <endpoint>
+        <grammar>
+            <active>
+                <identifier>active:populate-db</identifier>
+            </active>
+        </grammar>
+        <request>
+            <identifier>active:groovy</identifier>
+            <argument name="operator">res:/scripts/populate-db.gy</argument>
+        </request>
+    </endpoint>
+</config>
