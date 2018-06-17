@@ -7,6 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -123,5 +124,20 @@
     <orderEntry type="library" name="Maven: org.codehaus.groovy:groovy-all:2.4.3" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.12" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.assertj:assertj-core:3.1.0" level="project" />
+    <orderEntry type="library" name="Maven: io.rest-assured:json-schema-validator:3.1.0" level="project" />
+    <orderEntry type="library" name="Maven: com.github.fge:json-schema-validator:2.2.6" level="project" />
+    <orderEntry type="library" name="Maven: com.googlecode.libphonenumber:libphonenumber:6.2" level="project" />
+    <orderEntry type="library" name="Maven: com.github.fge:json-schema-core:1.2.5" level="project" />
+    <orderEntry type="library" name="Maven: com.github.fge:uri-template:0.9" level="project" />
+    <orderEntry type="library" name="Maven: com.github.fge:msg-simple:1.1" level="project" />
+    <orderEntry type="library" name="Maven: com.github.fge:btf:1.2" level="project" />
+    <orderEntry type="library" name="Maven: com.github.fge:jackson-coreutils:1.8" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.2.3" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.2.3" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.2.3" level="project" />
+    <orderEntry type="library" name="Maven: org.mozilla:rhino:1.7R4" level="project" />
+    <orderEntry type="library" name="Maven: javax.mail:mailapi:1.4.3" level="project" />
+    <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.jopt-simple:jopt-simple:4.6" level="project" />
   </component>
 </module>

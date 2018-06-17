@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Owner",
+  "description": "A pet owner visiting PetClinic",
+  "type": "object",
+  "required": ["firstName", "lastName", "address"],
+  "properties": {
+    "address": {
+      "type": "string"
+    },
+    "city":  {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "pets": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "birthDate": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "owner": {
+                "type": "integer"
+              },
+              "type": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              },
+              "visits": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "date": {
+                          "format": "date-time",
+                          "type": "string"
+                        },
+                        "description": {
+                          "type": "string"
+                        },
+                        "id": {
+                          "type": "integer"
+                        },
+                        "pet": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "telephone": {
+      "type": "string"
+    }
+  }
+}

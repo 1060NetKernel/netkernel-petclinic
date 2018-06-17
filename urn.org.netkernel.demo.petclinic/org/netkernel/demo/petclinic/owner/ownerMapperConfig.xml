@@ -19,5 +19,6 @@
         <request>
             <identifier>res:/dummy</identifier>
         </request>
+        <header name="mime">application/json</header>
     </endpoint>
 </config>
