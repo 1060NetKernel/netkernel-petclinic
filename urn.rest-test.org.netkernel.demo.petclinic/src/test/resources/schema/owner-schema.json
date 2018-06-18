@@ -1,77 +1,99 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Owner",
-  "description": "A pet owner visiting PetClinic",
-  "type": "object",
-  "required": ["firstName", "lastName", "address"],
-  "properties": {
-    "id": {
-      "type": "integer"
-    },
-    "address": {
-      "type": "string"
-    },
-    "city":  {
-      "type": "string"
-    },
-    "firstName": {
-      "type": "string"
-    },
-    "lastName": {
-      "type": "string"
-    },
-    "telephone": {
-      "type": "string"
-    },
-    "pets": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "birthDate": {
-            "format": "date-time",
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "owner": {
-            "type": "integer"
-          },
-          "type": {
+  "$ref": "#/definitions/owner",
+  "definitions": {
+    "petType": {
+      "title": "type",
+      "type": "object",
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "birthDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "type": {
+          "$ref": "#/definitions/petType"
+        },
+        "owner": {
+          "type": "number"
+        },
+        "visits": {
+          "type": "array",
+          "title": "visits",
+          "items": {
             "type": "object",
+            "required": [
+              "id",
+              "date",
+              "description",
+              "pet"
+            ],
+            "additionalProperties": false,
             "properties": {
               "id": {
                 "type": "integer"
               },
-              "name": {
+              "date": {
                 "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "pet": {
+                "type": "integer"
               }
             }
-          },
-          "visits": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "date": {
-                  "format": "date-time",
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "id": {
-                  "type": "integer"
-                },
-                "pet": {
-                  "type": "integer"
-                }
-              }
-            }
+          }
+        }
+      }
+    },
+    "owner": {
+      "description": "Pet owner visiting pet clinic",
+      "type": "object",
+      "required": [
+        "id",
+        "firstName",
+        "lastName",
+        "address",
+        "city",
+        "telephone",
+        "pets"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "telephone": {
+          "type": "string"
+        },
+        "pets": {
+          "type": "array",
+          "title": "pets",
+          "items": {
+            "$ref": "#/definitions/petType"
           }
         }
       }
