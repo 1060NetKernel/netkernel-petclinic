@@ -3,6 +3,23 @@
   "$ref": "#/definitions/owner",
   "definitions": {
     "petType": {
+      "title": "Pet type",
+      "type": "object",
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "pet": {
       "title": "type",
       "type": "object",
       "required": [
@@ -25,7 +42,7 @@
           "$ref": "#/definitions/petType"
         },
         "owner": {
-          "type": "number"
+          "type": "integer"
         },
         "visits": {
           "type": "array",
@@ -93,7 +110,7 @@
           "type": "array",
           "title": "pets",
           "items": {
-            "$ref": "#/definitions/petType"
+            "$ref": "#/definitions/pet"
           }
         }
       }
