@@ -33,7 +33,7 @@ public class RetrieveOwnerFromThePetClinicTest extends RestApiBase {
                 .log().all()
                 .get("/api/owners/{ownerId}", 10)
                 .then()
-                .log().all()
+                //.log().all()
                 .statusCode(200)
                 .and().body("id", equalTo(10))
                 .and().body("firstName", equalTo("Carlos"))

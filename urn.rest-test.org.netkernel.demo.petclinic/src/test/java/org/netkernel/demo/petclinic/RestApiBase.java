@@ -7,7 +7,7 @@ public class RestApiBase {
     @BeforeClass
     public static void setUp() {
         RestAssured.baseURI = "http://localhost";
-        RestAssured.port = 8080;
+        RestAssured.port = 9966;
         RestAssured.basePath = "/petclinic";
     }
 }
