@@ -12,5 +12,5 @@ https://appear.in/netkernel-petclinic
 # Discussion forum
 http://www.1060.org/nk4um/forum/16/
 
-# Prepare local environment for development
+# Setup local development environment
 See Trello card https://trello.com/c/YMHuM4sK

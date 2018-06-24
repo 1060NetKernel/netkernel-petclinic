@@ -112,6 +112,9 @@
           "201": {
             "description": "Created"
           },
+          "400": {
+            "description": "Bad Request"
+          },
           "401": {
             "description": "Unauthorized"
           },
@@ -246,6 +249,9 @@
           },
           "201": {
             "description": "Created"
+          },
+          "204": {
+            "description": "No Content"
           },
           "401": {
             "description": "Unauthorized"
@@ -1649,12 +1655,16 @@
           "format": "int32"
         },
         "pet": {
-          "$ref": "#/definitions/Pet"
+          "type": "integer",
+          "format": "int32"
         }
       }
     },
     "Collection«PetType»": {
-      "type": "object"
+      "type": "array",
+      "items" : {
+        "$ref" : "#/definitions/PetType"
+      }
     },
     "ModelAndView": {
       "type": "object",
@@ -1752,7 +1762,10 @@
       }
     },
     "Collection«Vet»": {
-      "type": "object"
+      "type": "array",
+      "items" : {
+        "$ref" : "#/definitions/Vet"
+      }
     },
     "View": {
       "type": "object",
@@ -1763,10 +1776,16 @@
       }
     },
     "Collection«Visit»": {
-      "type": "object"
+      "type": "array",
+      "items" : {
+        "$ref" : "#/definitions/Visit"
+      }
     },
     "Collection«Pet»": {
-      "type": "object"
+      "type": "array",
+      "items" : {
+        "$ref" : "#/definitions/Pet"
+      }
     },
     "PetType": {
       "type": "object",
@@ -1793,10 +1812,16 @@
       }
     },
     "Collection«Owner»": {
-      "type": "object"
+      "type": "array",
+      "items" : {
+        "$ref" : "#/definitions/Owner"
+      }
     },
     "Collection«Specialty»": {
-      "type": "object"
+      "type": "array",
+      "items" : {
+        "$ref" : "#/definitions/Specialty"
+      }
     },
     "Pet": {
       "type": "object",
