@@ -437,7 +437,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Pet"
+              "$ref": "#/definitions/PetDeep"
             }
           },
           "401": {
@@ -1611,7 +1611,7 @@
         "pets": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Pet"
+            "$ref": "#/definitions/PetShallow"
           }
         },
         "telephone": {
@@ -1823,7 +1823,7 @@
         "$ref" : "#/definitions/Specialty"
       }
     },
-    "Pet": {
+    "PetShallow": {
       "type": "object",
       "properties": {
         "birthDate": {
@@ -1840,6 +1840,34 @@
         "owner": {
           "type": "integer",
           "format": "int32"
+        },
+        "type": {
+          "$ref": "#/definitions/PetType"
+        },
+        "visits": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Visit"
+          }
+        }
+      }
+    },
+    "PetDeep": {
+      "type": "object",
+      "properties": {
+        "birthDate": {
+          "type": "string",
+          "pattern": "^\\d{4}/\\d{2}/\\d{2}$"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owner": {
+          "$ref": "#/definitions/Owner"
         },
         "type": {
           "$ref": "#/definitions/PetType"

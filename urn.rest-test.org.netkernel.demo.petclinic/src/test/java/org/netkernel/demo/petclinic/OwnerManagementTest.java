@@ -1,15 +1,16 @@
 package org.netkernel.demo.petclinic;
 
-import com.atlassian.oai.validator.restassured.SwaggerValidationFilter;
 import io.restassured.response.Response;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.WithTag;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.netkernel.demo.petclinic.model.Owner;
 import org.netkernel.demo.petclinic.steps.PetClinicSteps;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,12 +19,8 @@ import static net.serenitybdd.rest.SerenityRest.rest;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-
 @RunWith(SerenityRunner.class)
 public class OwnerManagementTest extends RestApiBase {
-    private static final String SCHEMA_ROOT_PATH = "C:/data/nk-workspace/netkernel-petclinic";
-    private static final String SWAGGER_JSON_URL = "file:///" + SCHEMA_ROOT_PATH + "/urn.rest-test.org.netkernel.demo.petclinic/src/test/resources/schema/model-schema.json";
-    private final SwaggerValidationFilter validationFilter = new SwaggerValidationFilter(SWAGGER_JSON_URL);
 
     @Steps
     PetClinicSteps petClinic;
@@ -82,6 +79,7 @@ public class OwnerManagementTest extends RestApiBase {
                 .and().body("firstName", hasItems("Jeff", "George", "Maria", "Jean"));
     }
 
+    @Ignore
     @Test
     public void shouldDeleteOwner() {
         rest().filter(validationFilter)
@@ -113,8 +111,10 @@ public class OwnerManagementTest extends RestApiBase {
         Response response = rest().filter(validationFilter)
                 .log().all()
                 .get(" /api/owners/*/lastname/{lastName}", "Ronaldo");
-        List<String> foundBefore = response.body().jsonPath().getList("firstName");
-
+        List<String> foundBefore = Collections.emptyList();
+        if (!response.body().asString().isEmpty()) {
+            foundBefore = response.body().jsonPath().getList("firstName");
+        }
 
         rest().filter(validationFilter)
                 .log().all()
@@ -133,6 +133,10 @@ public class OwnerManagementTest extends RestApiBase {
 
         assertThat(foundAfter.size(), equalTo(foundBefore.size() + 1));
 
+        //teardown
+        rest().filter(validationFilter)
+                .log().all()
+                .delete(" /api/owners/{ownerId}", response.body().jsonPath().getList("id").get(0));
     }
 
     @Test
