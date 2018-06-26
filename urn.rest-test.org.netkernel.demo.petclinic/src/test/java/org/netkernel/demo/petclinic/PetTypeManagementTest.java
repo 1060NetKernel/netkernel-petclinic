@@ -83,7 +83,7 @@ public class PetTypeManagementTest extends RestApiBase {
         //teardown
         rest().filter(validationFilter)
                 .log().all()
-                .delete(" /api/pettypes/{newPetTypeId}", newPetTypeId);
+                .delete(" /api/pettypes/{petTypeId}", newPetTypeId);
     }
 
     @Test
