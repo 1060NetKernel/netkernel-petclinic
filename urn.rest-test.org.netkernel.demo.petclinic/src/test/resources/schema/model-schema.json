@@ -1332,6 +1332,9 @@
           "201": {
             "description": "Created"
           },
+          "204": {
+            "description": "No Content"
+          },
           "401": {
             "description": "Unauthorized"
           },
@@ -1667,9 +1670,7 @@
           "format": "int32"
         },
         "pet": {
-          "type": "integer",
-          "format": "int32"
-        }
+          "$ref" : "#/definitions/PetDeep"        }
       }
     },
     "Collection«PetType»": {
