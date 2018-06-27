@@ -41,7 +41,7 @@ public class PetManagementTest extends RestApiBase {
                 .log().all()
                 .statusCode(200)
                 .and().body("size", equalTo(13))
-                .and().body("name", hasItems("Leo", "Basil", "Rosy", "Jewel", "Iggy", "George", "Samantha", "Max", "Lucky", "Mulligan", "Freddy", "Lucky", "Sly"));
+                .and().body("name", hasItems("Leo", "Basil", "Rosy", "Jewel", "Iggy", "George", "Samantha", "Max", "Lucky", "Mulligan", "Lucky", "Sly"));
     }
 
     @Test

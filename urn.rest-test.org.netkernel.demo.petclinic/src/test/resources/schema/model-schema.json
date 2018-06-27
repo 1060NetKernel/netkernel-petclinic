@@ -1191,7 +1191,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Collection«Visit»"
+              "$ref": "#/definitions/Collection«VisitShallow»"
             }
           },
           "401": {
@@ -1224,7 +1224,7 @@
             "description": "visit",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Visit"
+              "$ref": "#/definitions/VisitDeep"
             }
           }
         ],
@@ -1232,7 +1232,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Visit"
+              "$ref": "#/definitions/VisitDeep"
             }
           },
           "201": {
@@ -1277,7 +1277,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Visit"
+              "$ref": "#/definitions/VisitDeep"
             }
           },
           "401": {
@@ -1318,7 +1318,7 @@
             "description": "visit",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Visit"
+              "$ref": "#/definitions/VisitDeep"
             }
           }
         ],
@@ -1326,7 +1326,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Visit"
+              "$ref": "#/definitions/VisitDeep"
             }
           },
           "201": {
@@ -1655,7 +1655,27 @@
         }
       }
     },
-    "Visit": {
+    "VisitShallow": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string",
+          "example": "yyyy/MM/dd"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pet": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "VisitDeep": {
       "type": "object",
       "properties": {
         "date": {
@@ -1788,10 +1808,10 @@
         }
       }
     },
-    "Collection«Visit»": {
+    "Collection«VisitShallow»": {
       "type": "array",
       "items" : {
-        "$ref" : "#/definitions/Visit"
+        "$ref" : "#/definitions/VisitDeep"
       }
     },
     "Collection«Pet»": {
@@ -1860,7 +1880,7 @@
         "visits": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Visit"
+            "$ref": "#/definitions/VisitShallow"
           }
         }
       }
@@ -1888,7 +1908,7 @@
         "visits": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Visit"
+            "$ref": "#/definitions/VisitShallow"
           }
         }
       }
