@@ -38,7 +38,7 @@ public class VisitManagementTest extends RestApiBase {
     public void shouldFindAllVisits() {
         rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/visits")
+                .get("/api/visits")
                 .then()
                 .log().all()
                 .statusCode(200)
@@ -55,7 +55,7 @@ public class VisitManagementTest extends RestApiBase {
         int petId = 8;
         Response response = rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/visits")
+                .get("/api/visits")
                 .then()
                 .log().all()
                 .extract().response();
@@ -69,7 +69,7 @@ public class VisitManagementTest extends RestApiBase {
 
     @Test
     public void shouldInsertVisit() {
-        String owner = "{\n" +
+        String visit = "{\n" +
                 "    \"id\": 0,\n" +
                 "    \"date\": \"2018/09/04\",\n" +
                 "    \"description\": \"too quiet\",\n" +
@@ -94,7 +94,7 @@ public class VisitManagementTest extends RestApiBase {
 
         Response response = rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/visits");
+                .get("/api/visits");
         List<String> foundBefore = Collections.emptyList();
         if (!response.body().asString().isEmpty()) {
             foundBefore = response.body().jsonPath().getList("id");
@@ -104,8 +104,8 @@ public class VisitManagementTest extends RestApiBase {
                 .log().all()
                 .given()
                 .contentType("application/json")
-                .body(owner)
-                .post(" /api/visits")
+                .body(visit)
+                .post("/api/visits")
                 .then()
                 .log().all()
                 .statusCode(201)
@@ -116,7 +116,7 @@ public class VisitManagementTest extends RestApiBase {
 
         response = rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/visits");
+                .get("/api/visits");
         List<String> foundAfter = response.body().jsonPath().getList("id");
 
         assertThat(foundAfter.size(), equalTo(foundBefore.size() + 1));
@@ -124,14 +124,14 @@ public class VisitManagementTest extends RestApiBase {
         //teardown
         rest().filter(validationFilter)
                 .log().all()
-                .delete(" /api/visits/{visitId}", newVisitId);
+                .delete("/api/visits/{visitId}", newVisitId);
     }
 
     @Test
     public void shouldUpdateVisit() {
         Response response = rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/visits/{visitId}", 2);
+                .get("/api/visits/{visitId}", 2);
         String description = response.body().jsonPath().get("description");
         String date = response.body().jsonPath().get("date");
 
@@ -149,14 +149,14 @@ public class VisitManagementTest extends RestApiBase {
                 .given()
                 .contentType("application/json")
                 .body(jsonAsMap)
-                .put(" /api/visits/{visitId}", 2)
+                .put("/api/visits/{visitId}", 2)
                 .then()
                 //.log().all()
                 .statusCode(204);
 
         response = rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/visits/{visitId}", 2);
+                .get("/api/visits/{visitId}", 2);
         description = response.body().jsonPath().get("description");
 
         assertThat(description, equalTo(newDescription));
@@ -167,14 +167,14 @@ public class VisitManagementTest extends RestApiBase {
     public void shouldDeleteVisit() {
         rest().filter(validationFilter)
                 .log().all()
-                .delete(" /api/visits/{visitId}", 2)
+                .delete("/api/visits/{visitId}", 2)
                 .then()
                 .log().all()
                 .statusCode(204);
 
         rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/visits/{visitId}", 2)
+                .get("/api/visits/{visitId}", 2)
                 .then()
                 .log().all()
                 .statusCode(404);

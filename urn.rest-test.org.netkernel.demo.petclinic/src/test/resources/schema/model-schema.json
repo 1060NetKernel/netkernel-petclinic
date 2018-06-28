@@ -915,6 +915,9 @@
           "201": {
             "description": "Created"
           },
+          "204": {
+            "description": "No Content"
+          },
           "401": {
             "description": "Unauthorized"
           },

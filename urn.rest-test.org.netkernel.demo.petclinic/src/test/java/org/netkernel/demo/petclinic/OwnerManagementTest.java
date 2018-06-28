@@ -51,7 +51,7 @@ public class OwnerManagementTest extends RestApiBase {
     public void shouldFindOwnersByLastName() {
         rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/owners/*/lastname/{lastName}", "Rodriquez")
+                .get("/api/owners/*/lastname/{lastName}", "Rodriquez")
                 .then()
                 .log().all()
                 .statusCode(200)
@@ -60,7 +60,7 @@ public class OwnerManagementTest extends RestApiBase {
 
         rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/owners/*/lastname/{lastName}", "Ronaldo")
+                .get("/api/owners/*/lastname/{lastName}", "Ronaldo")
                 .then()
                 .log().all()
                 .statusCode(404);
@@ -70,7 +70,7 @@ public class OwnerManagementTest extends RestApiBase {
     public void shouldFindAllOwners() {
         rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/owners")
+                .get("/api/owners")
                 .then()
                 .log().all()
                 .statusCode(200)
@@ -84,14 +84,14 @@ public class OwnerManagementTest extends RestApiBase {
     public void shouldDeleteOwner() {
         rest().filter(validationFilter)
                 .log().all()
-                .delete(" /api/owners/{ownerId}", 6)
+                .delete("/api/owners/{ownerId}", 6)
                 .then()
                 .log().all()
                 .statusCode(204);
 
         rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/owners/{ownerId}", 6)
+                .get("/api/owners/{ownerId}", 6)
                 .then()
                 .log().all()
                 .statusCode(404);
@@ -110,7 +110,7 @@ public class OwnerManagementTest extends RestApiBase {
 
         Response response = rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/owners/*/lastname/{lastName}", "Ronaldo");
+                .get("/api/owners/*/lastname/{lastName}", "Ronaldo");
         List<String> foundBefore = Collections.emptyList();
         if (!response.body().asString().isEmpty()) {
             foundBefore = response.body().jsonPath().getList("firstName");
@@ -121,14 +121,14 @@ public class OwnerManagementTest extends RestApiBase {
                 .given()
                 .contentType("application/json")
                 .body(owner)
-                .post(" /api/owners")
+                .post("/api/owners")
                 .then()
                 .log().all()
                 .statusCode(201);
 
         response = rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/owners/*/lastname/{lastName}", "Ronaldo");
+                .get("/api/owners/*/lastname/{lastName}", "Ronaldo");
         List<String> foundAfter = response.body().jsonPath().getList("firstName");
 
         assertThat(foundAfter.size(), equalTo(foundBefore.size() + 1));
@@ -136,7 +136,7 @@ public class OwnerManagementTest extends RestApiBase {
         //teardown
         rest().filter(validationFilter)
                 .log().all()
-                .delete(" /api/owners/{ownerId}", response.body().jsonPath().getList("id").get(0));
+                .delete("/api/owners/{ownerId}", response.body().jsonPath().getList("id").get(0));
     }
 
     @Test
@@ -144,7 +144,7 @@ public class OwnerManagementTest extends RestApiBase {
     public void shouldUpdateOwner() {
         Response response = rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/owners/{ownerId}", 1);
+                .get("/api/owners/{ownerId}", 1);
         String firstName = response.body().jsonPath().get("firstName");
         String lastName = response.body().jsonPath().get("lastName");
         String address = response.body().jsonPath().get("address");
@@ -165,14 +165,14 @@ public class OwnerManagementTest extends RestApiBase {
                 .given()
                 .contentType("application/json")
                 .body(jsonAsMap)
-                .put(" /api/owners/{ownerId}", 1)
+                .put("/api/owners/{ownerId}", 1)
                 .then()
                 //.log().all()
                 .statusCode(204);
 
         response = rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/owners/{ownerId}", 1);
+                .get("/api/owners/{ownerId}", 1);
         lastName = response.body().jsonPath().get("lastName");
 
         assertThat(lastName, equalTo(newLastName));

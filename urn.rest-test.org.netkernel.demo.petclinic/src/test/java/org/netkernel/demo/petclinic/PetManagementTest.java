@@ -36,7 +36,7 @@ public class PetManagementTest extends RestApiBase {
     public void shouldFindAllPets() {
         rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/pets")
+                .get("/api/pets")
                 .then()
                 .log().all()
                 .statusCode(200)
@@ -46,7 +46,7 @@ public class PetManagementTest extends RestApiBase {
 
     @Test
     public void shouldInsertPetIntoDatabaseAndGenerateId() {
-        String owner = "{\n" +
+        String pet = "{\n" +
                 "    \"id\": 0,\n" +
                 "    \"name\": \"Riff\",\n" +
                 "    \"birthDate\": \"1990/01/05\",\n" +
@@ -66,7 +66,7 @@ public class PetManagementTest extends RestApiBase {
 
         Response response = rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/owners/{ownerId}", 6);
+                .get("/api/owners/{ownerId}", 6);
         List<String> foundBefore = Collections.emptyList();
         if (!response.body().asString().isEmpty()) {
             foundBefore = response.body().jsonPath().getList("pets.id");
@@ -76,8 +76,8 @@ public class PetManagementTest extends RestApiBase {
                 .log().all()
                 .given()
                 .contentType("application/json")
-                .body(owner)
-                .post(" /api/pets")
+                .body(pet)
+                .post("/api/pets")
                 .then()
                 .log().all()
                 .statusCode(201)
@@ -87,7 +87,7 @@ public class PetManagementTest extends RestApiBase {
 
         response = rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/owners/{ownerId}", 6);
+                .get("/api/owners/{ownerId}", 6);
         List<String> foundAfter = response.body().jsonPath().getList("pets.id");
 
         assertThat(foundAfter.size(), equalTo(foundBefore.size() + 1));
@@ -95,14 +95,14 @@ public class PetManagementTest extends RestApiBase {
         //teardown
         rest().filter(validationFilter)
                 .log().all()
-                .delete(" /api/pets/{newPetId}", newPetId);
+                .delete("/api/pets/{newPetId}", newPetId);
     }
 
     @Test
     public void shouldUpdatePetName() {
         Response response = rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/pets/{petId}", 11);
+                .get("/api/pets/{petId}", 11);
         String name = response.body().jsonPath().get("name");
         String birthDate = response.body().jsonPath().get("birthDate");
 
@@ -141,14 +141,14 @@ public class PetManagementTest extends RestApiBase {
                 .given()
                 .contentType("application/json")
                 .body(jsonAsMap)
-                .put(" /api/pets/{petId}", 11)
+                .put("/api/pets/{petId}", 11)
                 .then()
                 //.log().all()
                 .statusCode(204);
 
         response = rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/pets/{petId}", 11);
+                .get("/api/pets/{petId}", 11);
         name = response.body().jsonPath().get("name");
 
         assertThat(name, equalTo(newName));
@@ -159,14 +159,14 @@ public class PetManagementTest extends RestApiBase {
     public void shouldDeletePet() {
         rest().filter(validationFilter)
                 .log().all()
-                .delete(" /api/pets/{petId}", 13)
+                .delete("/api/pets/{petId}", 13)
                 .then()
                 .log().all()
                 .statusCode(204);
 
         rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/pets/{petId}", 13)
+                .get("/api/pets/{petId}", 13)
                 .then()
                 .log().all()
                 .statusCode(404);

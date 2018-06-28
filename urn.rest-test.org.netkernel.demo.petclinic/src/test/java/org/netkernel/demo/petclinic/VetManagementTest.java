@@ -58,7 +58,7 @@ public class VetManagementTest extends RestApiBase {
         //If specified, if there is existing record with same id then that record would be replaced.
         //Same id as in request is echoed back in response.
         //New id should be generated and returned in response representation.
-        String owner = "  {\n" +
+        String vet = "  {\n" +
                 "    \"firstName\": \"Ionel\",\n" +
                 "    \"lastName\": \"Dima\",\n" +
                 "    \"specialties\": [\n" +
@@ -71,7 +71,7 @@ public class VetManagementTest extends RestApiBase {
 
         Response response = rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/vets");
+                .get("/api/vets");
         List<String> foundBefore = Collections.emptyList();
         if (!response.body().asString().isEmpty()) {
             foundBefore = response.body().jsonPath().getList("id");
@@ -81,8 +81,8 @@ public class VetManagementTest extends RestApiBase {
                 .log().all()
                 .given()
                 .contentType("application/json")
-                .body(owner)
-                .post(" /api/vets")
+                .body(vet)
+                .post("/api/vets")
                 .then()
                 .log().all()
                 .statusCode(201)
@@ -93,7 +93,7 @@ public class VetManagementTest extends RestApiBase {
 
         response = rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/vets");
+                .get("/api/vets");
         List<String> foundAfter = response.body().jsonPath().getList("id");
 
         assertThat(foundAfter.size(), equalTo(foundBefore.size() + 1));
@@ -101,14 +101,14 @@ public class VetManagementTest extends RestApiBase {
         //teardown
         rest().filter(validationFilter)
                 .log().all()
-                .delete(" /api/vets/{vetId}", newVetId);
+                .delete("/api/vets/{vetId}", newVetId);
     }
 
     @Test
     public void shouldUpdateVet() {
         Response response = rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/vets/{vetId}", 5);
+                .get("/api/vets/{vetId}", 5);
         String firstName = response.body().jsonPath().get("firstName");
         String lastName = response.body().jsonPath().get("lastName");
         List<Map<String, String>> specialties = response.body().jsonPath().getList("specialties");
@@ -125,14 +125,14 @@ public class VetManagementTest extends RestApiBase {
                 .given()
                 .contentType("application/json")
                 .body(jsonAsMap)
-                .put(" /api/vets/{vetId}", 5)
+                .put("/api/vets/{vetId}", 5)
                 .then()
                 //.log().all()
                 .statusCode(204);
 
         response = rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/vets/{vetId}", 5);
+                .get("/api/vets/{vetId}", 5);
         lastName = response.body().jsonPath().get("lastName");
         specialties = response.body().jsonPath().getList("specialties");
 
@@ -145,14 +145,14 @@ public class VetManagementTest extends RestApiBase {
     public void shouldDeleteVet() {
         rest().filter(validationFilter)
                 .log().all()
-                .delete(" /api/vets/{vetId}", 2)
+                .delete("/api/vets/{vetId}", 2)
                 .then()
                 .log().all()
                 .statusCode(204);
 
         rest().filter(validationFilter)
                 .log().all()
-                .get(" /api/vets/{vetId}", 2)
+                .get("/api/vets/{vetId}", 2)
                 .then()
                 .log().all()
                 .statusCode(404);
