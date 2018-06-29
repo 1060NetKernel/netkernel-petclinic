@@ -15,6 +15,7 @@ import java.util.Map;
 import static net.serenitybdd.rest.SerenityRest.rest;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.not;
 
@@ -33,7 +34,7 @@ public class VetManagementTest extends RestApiBase {
                 .and().body("find {it.id == 3}.lastName", equalTo("Douglas"))
                 .and().body("find {it.id == 3}.specialties.size", is(2))
                 .and().body("find {it.id == 3}.specialties[0].name", equalTo("dentistry"))
-                .and().body("find {it.id == 3}.specialties[1].name", equalTo("surgery"));
+                .and().body("find {it.id == 3}.specialties[1].name", containsString("surgery"));
     }
 
     @Test
@@ -49,7 +50,7 @@ public class VetManagementTest extends RestApiBase {
                 .and().body("lastName", equalTo("Ortega"))
                 .and().body("specialties.size", is(1))
                 .and().body("specialties[0].id", is(2))
-                .and().body("specialties[0].name", equalTo("surgery"));
+                .and().body("specialties[0].name", containsString("surgery"));
     }
 
     @Test

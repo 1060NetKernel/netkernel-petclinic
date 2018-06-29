@@ -18,10 +18,6 @@
         </classloader>
     </system>
     <rootspace>
-        <!-- Expose this space to http fulcrum for development convenience -->
-        <fileset>
-            <regex>res:/etc/system/SimpleDynamicImportHook.xml</regex>
-        </fileset>
         <mapper>
             <config>
                 <import>res:/org/netkernel/demo/petclinic/db/dbMapperConfig.xml</import>
@@ -44,6 +40,9 @@
                 </import>
                 <import>
                     <uri>urn:org:netkernel:lang:groovy</uri>
+                </import>
+                <import>
+                    <uri>urn:org:netkernel:lang:dpml</uri>
                 </import>
             </space>
         </mapper>

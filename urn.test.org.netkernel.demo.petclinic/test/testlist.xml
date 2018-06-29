@@ -1,6 +1,11 @@
 <testlist>
     <import>res:/org/netkernel/xml/assert/assertLibrary.xml</import>
 
+    <test name="res:/petclinic/reset-db">
+        <request>
+            <identifier>res:/petclinic/reset-db</identifier>
+        </request>
+    </test>
     <test name="res:/petclinic/api/owners/{ownerId}">
         <request>
             <identifier>res:/petclinic/api/owners/10</identifier>

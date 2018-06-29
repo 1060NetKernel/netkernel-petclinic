@@ -2,6 +2,25 @@
 <config>
     <endpoint>
         <grammar>
+            <simple>res:/petclinic/reset-db</simple>
+        </grammar>
+        <request>
+            <identifier>active:reset-db</identifier>
+        </request>
+    </endpoint>
+    <endpoint>
+        <grammar>
+            <active>
+                <identifier>active:reset-db</identifier>
+            </active>
+        </grammar>
+        <request>
+            <identifier>active:dpml</identifier>
+            <argument name="operator">res:/scripts/reset-db.dpml</argument>
+        </request>
+    </endpoint>
+    <endpoint>
+        <grammar>
             <simple>res:/petclinic/create-db</simple>
         </grammar>
         <request>
