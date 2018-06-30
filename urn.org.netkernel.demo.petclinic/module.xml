@@ -40,7 +40,7 @@
     {
       "id": 12,
       "name": "Lucky",
-      "birthDate": "2000-06-24T04:52:48.160Z",
+      "birthDate": "2000/06/24",
       "type": {
         "id": 2,
         "name": "dog"
@@ -51,7 +51,7 @@
     {
       "id": 13,
       "name": "Sly",
-      "birthDate": "2002-06-08T04:52:48.160Z",
+      "birthDate": "2002/06/08",
       "type": {
         "id": 1,
         "name": "cat"
