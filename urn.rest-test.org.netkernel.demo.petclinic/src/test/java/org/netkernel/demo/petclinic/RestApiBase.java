@@ -27,6 +27,6 @@ public class RestApiBase {
     }
 
     private static void resetDatabase() {
-        rest().get(RestAssured.baseURI + ":" + NK_REST_API_PORT + "/petclinic/reset-db");
+        rest().get(RestAssured.baseURI + ":" + NK_REST_API_PORT + RestAssured.basePath + "/reset-db");
     }
 }
