@@ -17,6 +17,9 @@
   },
   "host": "localhost:8080",
   "basePath": "/petclinic",
+  "schemes": [
+    "http", "https"
+  ],
   "tags": [
     {
       "name": "pet-type-rest-controller",
