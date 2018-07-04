@@ -1,21 +1,21 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "This is REST API documentation of the Spring Petclinic backend",
+    "description": "This is REST API documentation of the NetKernel PetClinic backend",
     "version": "1.0",
-    "title": "REST Petclinic backend Api Documentation",
-    "termsOfService": "Petclinic backend terms of service",
+    "title": "REST PetClinic backend Api Documentation",
+    "termsOfService": "PetClinic backend terms of service",
     "contact": {
-      "name": "Vitaliy Fedoriv",
-      "url": "https://github.com/spring-petclinic/spring-petclinic-rest",
-      "email": "vitaliy.fedoriv@gmail.com"
+      "name": "Mircea Cocosila",
+      "url": "https://github.com/1060NetKernel/netkernel-petclinic",
+      "email": "mircea@neodonis.com"
     },
     "license": {
       "name": "Apache 2.0",
       "url": "http://www.apache.org/licenses/LICENSE-2.0"
     }
   },
-  "host": "localhost:9966",
+  "host": "localhost:8080",
   "basePath": "/petclinic",
   "tags": [
     {
@@ -65,7 +65,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Collection«Owner»"
+              "$ref": "#/definitions/CollectionOfOwner"
             }
           },
           "401": {
@@ -153,7 +153,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Collection«Owner»"
+              "$ref": "#/definitions/CollectionOfOwner"
             }
           },
           "401": {
@@ -319,7 +319,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Collection«Pet»"
+              "$ref": "#/definitions/CollectionOfPet"
             }
           },
           "401": {
@@ -395,7 +395,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Collection«PetType»"
+              "$ref": "#/definitions/CollectionOfPetType"
             }
           },
           "401": {
@@ -564,7 +564,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Collection«PetType»"
+              "$ref": "#/definitions/CollectionOfPetType"
             }
           },
           "401": {
@@ -774,7 +774,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Collection«Specialty»"
+              "$ref": "#/definitions/CollectionOfSpecialty"
             }
           },
           "401": {
@@ -984,7 +984,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Collection«Vet»"
+              "$ref": "#/definitions/CollectionOfVet"
             }
           },
           "401": {
@@ -1194,7 +1194,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Collection«VisitShallow»"
+              "$ref": "#/definitions/CollectionOfVisitShallow"
             }
           },
           "401": {
@@ -1696,7 +1696,7 @@
           "$ref" : "#/definitions/PetDeep"        }
       }
     },
-    "Collection«PetType»": {
+    "CollectionOfPetType": {
       "type": "array",
       "items" : {
         "$ref" : "#/definitions/PetType"
@@ -1797,7 +1797,7 @@
         }
       }
     },
-    "Collection«Vet»": {
+    "CollectionOfVet": {
       "type": "array",
       "items" : {
         "$ref" : "#/definitions/Vet"
@@ -1811,13 +1811,13 @@
         }
       }
     },
-    "Collection«VisitShallow»": {
+    "CollectionOfVisitShallow": {
       "type": "array",
       "items" : {
         "$ref" : "#/definitions/VisitDeep"
       }
     },
-    "Collection«Pet»": {
+    "CollectionOfPet": {
       "type": "array",
       "items" : {
         "$ref" : "#/definitions/PetDeep"
@@ -1847,13 +1847,13 @@
         }
       }
     },
-    "Collection«Owner»": {
+    "CollectionOfOwner": {
       "type": "array",
       "items" : {
         "$ref" : "#/definitions/Owner"
       }
     },
-    "Collection«Specialty»": {
+    "CollectionOfSpecialty": {
       "type": "array",
       "items" : {
         "$ref" : "#/definitions/Specialty"

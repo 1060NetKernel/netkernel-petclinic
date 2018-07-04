@@ -17,8 +17,12 @@
             </active>
         </grammar>
         <request>
+            <header name="no-cache">
+                <literal type="boolean">true</literal>
+            </header>
             <identifier>res:/dummy</identifier>
         </request>
-        <header name="mime">application/json</header>
+        <header name="mime">application/json;charset=UTF-8</header>
+        <!--<header name="mime">text/html</header>-->
     </endpoint>
 </config>
