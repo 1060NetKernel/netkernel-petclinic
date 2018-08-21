@@ -1,0 +1,28 @@
+import java.lang.*;
+
+import org.netkernel.layer0.nkf.INKFRequest
+import org.netkernel.layer0.nkf.INKFRequestContext
+import org.netkernel.layer0.nkf.INKFResponse
+
+INKFRequestContext ctx = context
+INKFRequest req
+
+ownerId=ctx.getThisRequest().getArgumentValue("ownerId");
+rep = null;
+
+req = ctx.createRequest("active:freemarker")
+req.addArgument("operator", "res:/resources/ftl/sql/select-ownerId.sql")
+req.addArgumentByValue("ownerId", ownerId)
+sql = ctx.issueRequest(req)
+//sql = "SELECT pets.id as pets_id, name, birth_date, type_id, owner_id, visits.id as visit_id, visit_date, description, visits.pet_id as visits_pet_id FROM pets LEFT OUTER JOIN visits ON pets.id = visits.pet_id WHERE owner_id=6 ORDER BY pets.id"
+
+req = ctx.createRequest("active:sqlQuery");
+req.addArgumentByValue("operand", sql);
+rep = ctx.issueRequest(req);
+
+//Attach Golden Thread
+//req = ctx.createRequest("active:attachGoldenThread");
+//req.addArgument("id", "gt:addressbook-all");
+//ctx.issueRequest(req);
+
+ctx.createResponseFrom(rep);

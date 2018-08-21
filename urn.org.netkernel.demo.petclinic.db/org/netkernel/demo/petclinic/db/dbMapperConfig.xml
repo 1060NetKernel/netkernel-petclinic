@@ -95,4 +95,30 @@
             <argument name="operator">res:/scripts/populate-db.gy</argument>
         </request>
     </endpoint>
+
+    <endpoint>
+        <grammar>
+            <simple>res:/petclinic/api/owners/{ownerId}</simple>
+        </grammar>
+        <request>
+            <identifier>active:owner-XML</identifier>
+            <argument name="id">arg:ownerId</argument>
+        </request>
+    </endpoint>
+    <endpoint>
+        <grammar>
+            <active>
+                <identifier>active:owner-XML</identifier>
+                <argument name="id"/>
+            </active>
+        </grammar>
+        <request>
+            <identifier>active:groovy</identifier>
+            <argument name="operator">res:/resources/owner/findOwnerById.gy</argument>
+            <argument name="ownerId">arg:id</argument>
+            <!--<representation>org.netkernel.xml.xda.IXDAReadOnly</representation>-->
+        </request>
+        <header name="mime">text/xml</header>
+    </endpoint>
+
 </config>
