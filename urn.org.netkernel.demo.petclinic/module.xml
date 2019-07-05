@@ -1,0 +1,74 @@
+<module version="2.0">
+    <meta>
+        <identity>
+            <uri>urn:org:netkernel:demo:petclinic</uri>
+            <version>0.0.1</version>
+        </identity>
+        <info>
+            <name>Demo / PetClinic</name>
+            <description>PetClinic in ROC</description>
+        </info>
+    </meta>
+    <system>
+        <dynamic/>
+        <classloader>
+            <exports>
+                <match>org\.postgresql\..*</match>
+            </exports>
+        </classloader>
+    </system>
+    <rootspace>
+        <!-- Expose this space to http fulcrum for development convenience -->
+        <fileset>
+            <regex>res:/etc/system/SimpleDynamicImportHook.xml</regex>
+        </fileset>
+        <mapper>
+            <config>
+                <import>res:/org/netkernel/demo/petclinic/owner/ownerMapperConfig.xml</import>
+            </config>
+            <space>
+                <literal uri="res:/dummy" type="string">
+                    <![CDATA[
+{
+  "id": 10,
+  "firstName": "Carlos",
+  "lastName": "Estaban",
+  "address": "2335 Independence La.",
+  "city": "Waunakee",
+  "telephone": "6085555487",
+  "pets": [
+    {
+      "id": 12,
+      "name": "Lucky",
+      "birthDate": "2000/06/24",
+      "type": {
+        "id": 2,
+        "name": "dog"
+      },
+      "owner": 10,
+      "visits": []
+    },
+    {
+      "id": 13,
+      "name": "Sly",
+      "birthDate": "2002/06/08",
+      "type": {
+        "id": 1,
+        "name": "cat"
+      },
+      "owner": 10,
+      "visits": []
+    }
+  ]
+}                    ]]>
+                </literal>
+                <fileset>
+                    <regex>res:/org/netkernel/demo/petclinic/.*</regex>
+                </fileset>
+                <fileset>
+                    <regex>res:/etc/.*</regex>
+                </fileset>
+            </space>
+        </mapper>
+    </rootspace>
+</module>

@@ -1,0 +1,1 @@
+SELECT id, first_name, last_name, address, city, telephone FROM owners WHERE id= '${ownerId}'

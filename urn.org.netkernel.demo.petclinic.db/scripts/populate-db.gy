@@ -1,0 +1,14 @@
+package scripts
+
+import org.netkernel.layer0.nkf.INKFRequest
+import org.netkernel.layer0.nkf.INKFRequestContext
+import org.netkernel.layer0.nkf.INKFResponse
+
+INKFRequestContext ctx = context
+INKFRequest req
+
+req = ctx.createRequest("active:sqlBatch")
+req.addArgument("operand", "res:/resources/db/postgresql/populate-db.xml")
+rep = ctx.issueRequest(req)
+INKFResponse response = ctx.createResponseFrom(rep)
+response.setExpiry(INKFResponse.EXPIRY_ALWAYS)

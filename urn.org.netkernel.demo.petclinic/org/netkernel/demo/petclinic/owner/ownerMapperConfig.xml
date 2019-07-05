@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config>
+    <endpoint>
+        <grammar>
+            <simple>res:/petclinic/api/owners/{ownerId}</simple>
+        </grammar>
+        <request>
+            <identifier>active:owner</identifier>
+            <argument name="id">arg:ownerId</argument>
+        </request>
+    </endpoint>
+    <endpoint>
+        <grammar>
+            <active>
+                <identifier>active:owner</identifier>
+                <argument name="id" />
+            </active>
+        </grammar>
+        <request>
+            <header name="no-cache">
+                <literal type="boolean">true</literal>
+            </header>
+            <identifier>res:/dummy</identifier>
+        </request>
+        <header name="mime">application/json;charset=UTF-8</header>
+        <!--<header name="mime">text/html</header>-->
+    </endpoint>
+</config>

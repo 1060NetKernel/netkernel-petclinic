@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence>
+    <request assignment="response">
+        <identifier>active:truncate-db</identifier>
+    </request>
+    <request assignment="response">
+        <identifier>active:populate-db</identifier>
+    </request>
+</sequence>
